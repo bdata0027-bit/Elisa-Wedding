@@ -34,18 +34,72 @@
             text-shadow: 0 2px 4px rgba(184, 134, 11, 0.25);
         }
         .bg-gradient-gold {
-            background: linear-gradient(135deg, '#D4AF37' 0%, '#E9D8A6' 50%, '#D4AF37' 100%);
+            background: linear-gradient(135deg, #D4AF37 0%, #E9D8A6 50%, #D4AF37 100%);
         }
     }
 </style>
 <style>
     html { scroll-behavior: smooth; }
     .service-card:hover { transform: translateY(-8px); }
-    /* Ganti latar yang tadinya kemerahan/pink jadi krem keemasan lembut */
-    .bg-amber-50\/50 {
+
+    /* Hilangkan semua nuansa warna kemerahan */
+    .bg-amber-50\/50, .bg-gradient-to-b.from-amber-50\/50 {
         background-color: #F9F2E0 !important;
     }
+
+    /* Bingkai estetik pemanis di bagian Tentang */
+    .about-frame-left, .about-frame-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 28%;
+        pointer-events: none;
+        opacity: 0.55;
+        z-index: 0;
+    }
+
+    .about-frame-left {
+        left: 0;
+        background: url('https://images.unsplash.com/photo-1519741497674-661738055123?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center center / cover no-repeat;
+        border-right: 12px solid #E9D8A6;
+        box-shadow: inset -8px 0 20px rgba(0,0,0,0.08);
+    }
+
+    .about-frame-right {
+        right: 0;
+        background: url('https://images.unsplash.com/photo-1550005809-91ad75fb315f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center center / cover no-repeat;
+        border-left: 12px solid #E9D8A6;
+        box-shadow: inset 8px 0 20px rgba(0,0,0,0.08);
+    }
+
+    /* Pastikan teks tentang tetap di atas dan tidak tertutup */
+    #tentang .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    #tentang .bg-gold\/10 {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Responsif: di HP pemanisnya lebih kecil */
+    @media (max-width: 768px) {
+        .about-frame-left, .about-frame-right {
+            width: 18%;
+            opacity: 0.35;
+        }
+
+        .about-frame-left {
+            border-right-width: 8px;
+        }
+
+        .about-frame-right {
+            border-left-width: 8px;
+        }
+    }
 </style>
+
 </head>
 <body class="font-sans bg-cream text-gray-800">
     <!-- Navbar -->
@@ -65,74 +119,74 @@
 
     <!-- Bagian Beranda -->
     <section id="beranda" class="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
-    <!-- Latar Belakang Berganti Otomatis -->
-    <div class="absolute inset-0">
-        <div id="slide1" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100" style="background-image: url('./pelaminan-1.jpg');">
-            <div class="absolute inset-0 bg-black/40"></div>
+        <!-- Latar Belakang Berganti Otomatis -->
+        <div class="absolute inset-0">
+            <div id="slide1" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100" style="background-image: url('./pelaminan-1.jpg');">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+            <div id="slide2" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('./pelaminan-2.jpg');">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
+            <div id="slide3" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('./pelaminan-3.jpg');">
+                <div class="absolute inset-0 bg-black/40"></div>
+            </div>
         </div>
-        <div id="slide2" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('./pelaminan-2.jpg');">
-            <div class="absolute inset-0 bg-black/40"></div>
-        </div>
-        <div id="slide3" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('./pelaminan-3.jpg');">
-            <div class="absolute inset-0 bg-black/40"></div>
-        </div>
-    </div>
 
-    <!-- Teks Tetap di Atas -->
-    <div class="container mx-auto px-4 text-center relative z-10">
-        <h1 class="font-display text-[clamp(2.5rem,8vw,4.5rem)] font-bold text-white mb-6 text-shadow-gold">
-            Elisa Wedding
-        </h1>
-        <p class="text-[clamp(1rem,3vw,1.25rem)] text-amber-100 mb-3">Dekorasi Pernikahan • Dekorasi Khitanan • Jasa Makeup</p>
-        <p class="text-lg max-w-2xl mx-auto mb-8 text-white/90">
-            Mewujudkan momen terindahmu menjadi kenyataan. Dengan sentuhan keanggunan dan pelayanan sepenuh hati, kami hadir untuk melengkapi hari bahagiamu.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a href="#kontak" class="bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-all shadow-lg hover:shadow-xl">
-                Konsultasi Gratis
-            </a>
-            <a href="#layanan" class="border-2 border-white text-white hover:bg-white/20 font-semibold px-8 py-3 rounded-full transition-all">
-                Lihat Paket
-            </a>
+        <!-- Teks Tetap di Atas -->
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="font-display text-[clamp(2.5rem,8vw,4.5rem)] font-bold text-white mb-6 text-shadow-gold">
+                Elisa Wedding
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.25rem)] text-amber-100 mb-3">Dekorasi Pernikahan • Dekorasi Khitanan • Jasa Makeup</p>
+            <p class="text-lg max-w-2xl mx-auto mb-8 text-white/90">
+                Mewujudkan momen terindahmu menjadi kenyataan. Dengan sentuhan keanggunan dan pelayanan sepenuh hati, kami hadir untuk melengkapi hari bahagiamu.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="#kontak" class="bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-all shadow-lg hover:shadow-xl">
+                    Konsultasi Gratis
+                </a>
+                <a href="#layanan" class="border-2 border-white text-white hover:bg-white/20 font-semibold px-8 py-3 rounded-full transition-all">
+                    Lihat Paket
+                </a>
+            </div>
+            <p class="text-sm text-amber-200">✨ Berbasis di Bandung & siap melayani kota sekitarnya ✨</p>
         </div>
-        <p class="text-sm text-amber-200">✨ Berbasis di Bandung & siap melayani kota sekitarnya ✨</p>
-    </div>
 
-    <!-- Tombol Lingkaran Indikator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
-        <span class="w-3 h-3 rounded-full bg-white" id="dot1"></span>
-        <span class="w-3 h-3 rounded-full bg-white/50" id="dot2"></span>
-        <span class="w-3 h-3 rounded-full bg-white/50" id="dot3"></span>
-    </div>
-</section>
+        <!-- Tombol Lingkaran Indikator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+            <span class="w-3 h-3 rounded-full bg-white" id="dot1"></span>
+            <span class="w-3 h-3 rounded-full bg-white/50" id="dot2"></span>
+            <span class="w-3 h-3 rounded-full bg-white/50" id="dot3"></span>
+        </div>
+    </section>
 
-<!-- Kode Pengatur Ganti Foto Otomatis -->
-<script>
-let nomor = 1;
-function gantiSlide() {
-    document.getElementById('slide1').style.opacity = '0';
-    document.getElementById('slide2').style.opacity = '0';
-    document.getElementById('slide3').style.opacity = '0';
-    document.getElementById('dot1').style.backgroundColor = 'rgba(255,255,255,0.5)';
-    document.getElementById('dot2').style.backgroundColor = 'rgba(255,255,255,0.5)';
-    document.getElementById('dot3').style.backgroundColor = 'rgba(255,255,255,0.5)';
-    
-    if(nomor === 1) {
-        document.getElementById('slide1').style.opacity = '1';
-        document.getElementById('dot1').style.backgroundColor = 'white';
-    } else if(nomor === 2) {
-        document.getElementById('slide2').style.opacity = '1';
-        document.getElementById('dot2').style.backgroundColor = 'white';
-    } else {
-        document.getElementById('slide3').style.opacity = '1';
-        document.getElementById('dot3').style.backgroundColor = 'white';
+    <!-- Kode Pengatur Ganti Foto Otomatis -->
+    <script>
+    let nomor = 1;
+    function gantiSlide() {
+        document.getElementById('slide1').style.opacity = '0';
+        document.getElementById('slide2').style.opacity = '0';
+        document.getElementById('slide3').style.opacity = '0';
+        document.getElementById('dot1').style.backgroundColor = 'rgba(255,255,255,0.5)';
+        document.getElementById('dot2').style.backgroundColor = 'rgba(255,255,255,0.5)';
+        document.getElementById('dot3').style.backgroundColor = 'rgba(255,255,255,0.5)';
+        
+        if(nomor === 1) {
+            document.getElementById('slide1').style.opacity = '1';
+            document.getElementById('dot1').style.backgroundColor = 'white';
+        } else if(nomor === 2) {
+            document.getElementById('slide2').style.opacity = '1';
+            document.getElementById('dot2').style.backgroundColor = 'white';
+        } else {
+            document.getElementById('slide3').style.opacity = '1';
+            document.getElementById('dot3').style.backgroundColor = 'white';
+        }
+        
+        nomor++;
+        if(nomor > 3) nomor = 1;
     }
-    
-    nomor++;
-    if(nomor > 3) nomor = 1;
-}
-setInterval(gantiSlide, 5000);
-</script>
+    setInterval(gantiSlide, 5000);
+    </script>
 
     <!-- Bagian Layanan -->
     <section id="layanan" class="py-20 bg-white">
@@ -141,7 +195,6 @@ setInterval(gantiSlide, 5000);
                 <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-4">Layanan Kami</h2>
                 <p class="text-gray-600 max-w-xl mx-auto">Pilih paket yang sesuai dengan kebutuhan momen istimewamu</p>
             </div>
-
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Kartu 1 -->
                 <div class="service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold">
@@ -158,7 +211,6 @@ setInterval(gantiSlide, 5000);
                     </div>
                     <p class="font-semibold text-gold-dark">Harga mulai — isi di sini</p>
                 </div>
-
                 <!-- Kartu 2 -->
                 <div class="service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold">
                     <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center text-gold-dark text-2xl mb-6">
@@ -174,7 +226,6 @@ setInterval(gantiSlide, 5000);
                     </div>
                     <p class="font-semibold text-gold-dark">Harga mulai — isi di sini</p>
                 </div>
-
                 <!-- Kartu 3 -->
                 <div class="service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold">
                     <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center text-gold-dark text-2xl mb-6">
@@ -195,134 +246,130 @@ setInterval(gantiSlide, 5000);
     </section>
 
     <!-- Bagian Galeri -->
-<section id="galeri" class="py-20 bg-amber-50/50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-4">Galeri Karya</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">Klik kartu untuk melihat koleksi lengkap karya kami</p>
-        </div>
-
-        <!-- 3 Kartu Utama -->
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
-            <!-- Kartu 1: Pernikahan -->
-            <div onclick="bukaGaleri('pernikahan')" class="cursor-pointer service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold hover:shadow-xl">
-                <div class="w-full h-48 bg-gold/10 rounded-xl mb-6 flex items-center justify-center text-gold-dark text-3xl">
-                    💍
-                </div>
-                <h3 class="font-display text-xl font-semibold mb-2 text-center">Dekorasi Pernikahan</h3>
-                <p class="text-gray-500 text-center text-sm">Klik untuk lihat 5 foto</p>
-            </div>
-
-            <!-- Kartu 2: Khitanan -->
-            <div onclick="bukaGaleri('khitanan')" class="cursor-pointer service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold hover:shadow-xl">
-                <div class="w-full h-48 bg-gold/10 rounded-xl mb-6 flex items-center justify-center text-gold-dark text-3xl">
-                    🌼
-                </div>
-                <h3 class="font-display text-xl font-semibold mb-2 text-center">Dekorasi Khitanan</h3>
-                <p class="text-gray-500 text-center text-sm">Klik untuk lihat 5 foto</p>
-            </div>
-
-            <!-- Kartu 3: Makeup -->
-            <div onclick="bukaGaleri('makeup')" class="cursor-pointer service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold hover:shadow-xl">
-                <div class="w-full h-48 bg-gold/10 rounded-xl mb-6 flex items-center justify-center text-gold-dark text-3xl">
-                    💄
-                </div>
-                <h3 class="font-display text-xl font-semibold mb-2 text-center">Jasa Makeup</h3>
-                <p class="text-gray-500 text-center text-sm">Klik untuk lihat 5 foto</p>
-            </div>
-        </div>
-
-        <!-- Kotak Muncul Foto (Tersembunyi Dulu) -->
-        <div id="overlay" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4" onclick="tutupGaleri(event)">
-            <div class="bg-white rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 id="judulGaleri" class="font-display text-xl font-semibold text-gold-dark"></h3>
-                    <button onclick="tutupGaleri()" class="text-gray-500 hover:text-gold-dark text-2xl">&times;</button>
-                </div>
-                <div id="isiFoto" class="grid grid-cols-2 md:grid-cols-5 gap-3">
-                    <!-- Foto akan muncul di sini -->
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Kode Buka-Tutup Foto -->
-<script>
-function bukaGaleri(jenis) {
-    const overlay = document.getElementById('overlay');
-    const judul = document.getElementById('judulGaleri');
-    const isi = document.getElementById('isiFoto');
-    
-    isi.innerHTML = ''; // Kosongkan dulu
-
-    if(jenis === 'pernikahan') {
-        judul.textContent = '💍 Dekorasi Pernikahan';
-        isi.innerHTML = `
-            <img src="pernikahan-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 1">
-            <img src="pernikahan-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 2">
-            <img src="pernikahan-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 3">
-            <img src="pernikahan-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 4">
-            <img src="pernikahan-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 5">
-        `;
-    } 
-    else if(jenis === 'khitanan') {
-        judul.textContent = '🌼 Dekorasi Khitanan';
-        isi.innerHTML = `
-            <img src="khitanan-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 1">
-            <img src="khitanan-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 2">
-            <img src="khitanan-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 3">
-            <img src="khitanan-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 4">
-            <img src="khitanan-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 5">
-        `;
-    }
-    else if(jenis === 'makeup') {
-        judul.textContent = '💄 Jasa Makeup';
-        isi.innerHTML = `
-            <img src="makeup-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 1">
-            <img src="makeup-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 2">
-            <img src="makeup-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 3">
-            <img src="makeup-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 4">
-            <img src="makeup-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 5">
-        `;
-    }
-
-    overlay.classList.remove('hidden');
-}
-
-function tutupGaleri(e) {
-    if(!e || e.target.id === 'overlay') {
-        document.getElementById('overlay').classList.add('hidden');
-    }
-}
-</script>
-
-
-    <!-- Bagian Tentang -->
-    <section id="tentang" class="py-20 bg-white">
+    <section id="galeri" class="py-20 bg-gold-pale">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-6">Tentang Elisa Wedding</h2>
-                    <p class="text-gray-600 mb-4">Kami adalah tim yang berdedikasi untuk mewujudkan momen istimewamu menjadi indah dan tak terlupakan. Berbasis di Bandung, Elisa Wedding hadir dengan sentuhan keanggunan dan pelayanan yang tulus.</p>
-                    <p class="text-gray-600 mb-6">Setiap dekorasi dan riasan kami kerjakan dengan sepenuh hati — karena kebahagiaanmu adalah kebanggaan kami.</p>
-                    <div class="space-y-2">
-                        <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Desain disesuaikan keinginanmu</p>
-                        <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Bahan & kualitas terbaik</p>
-                        <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Harga transparan & terjangkau</p>
-                        <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Siap melayani seluruh Bandung</p>
+            <div class="text-center mb-16">
+                <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-4">Galeri Karya</h2>
+                <p class="text-gray-600 max-w-xl mx-auto">Klik kartu untuk melihat koleksi lengkap karya kami</p>
+            </div>
+            <!-- 3 Kartu Utama -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Kartu 1: Pernikahan -->
+                <div onclick="bukaGaleri('pernikahan')" class="cursor-pointer service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold hover:shadow-xl">
+                    <div class="w-full h-48 bg-gold/10 rounded-xl mb-6 flex items-center justify-center text-gold-dark text-3xl">
+                        💍
                     </div>
+                    <h3 class="font-display text-xl font-semibold mb-2 text-center">Dekorasi Pernikahan</h3>
+                    <p class="text-gray-500 text-center text-sm">Klik untuk lihat 5 foto</p>
                 </div>
-                <div class="bg-gold/10 rounded-2xl p-8 text-center">
-                    <p class="font-display text-4xl text-gold-dark mb-2">✨</p>
-                    <p class="font-display text-xl text-gold-dark italic">"Mewujudkan Momen Indahmu"</p>
+                <!-- Kartu 2: Khitanan -->
+                <div onclick="bukaGaleri('khitanan')" class="cursor-pointer service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold hover:shadow-xl">
+                    <div class="w-full h-48 bg-gold/10 rounded-xl mb-6 flex items-center justify-center text-gold-dark text-3xl">
+                        🌼
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2 text-center">Dekorasi Khitanan</h3>
+                    <p class="text-gray-500 text-center text-sm">Klik untuk lihat 5 foto</p>
+                </div>
+                <!-- Kartu 3: Makeup -->
+                <div onclick="bukaGaleri('makeup')" class="cursor-pointer service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold hover:shadow-xl">
+                    <div class="w-full h-48 bg-gold/10 rounded-xl mb-6 flex items-center justify-center text-gold-dark text-3xl">
+                        💄
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2 text-center">Jasa Makeup</h3>
+                    <p class="text-gray-500 text-center text-sm">Klik untuk lihat 5 foto</p>
+                </div>
+            </div>
+            <!-- Kotak Muncul Foto -->
+            <div id="overlay" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4" onclick="tutupGaleri(event)">
+                <div class="bg-white rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 id="judulGaleri" class="font-display text-xl font-semibold text-gold-dark"></h3>
+                        <button onclick="tutupGaleri()" class="text-gray-500 hover:text-gold-dark text-2xl">&times;</button>
+                    </div>
+                    <div id="isiFoto" class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Kode Buka-Tutup Foto -->
+    <script>
+    function bukaGaleri(jenis) {
+        const overlay = document.getElementById('overlay');
+        const judul = document.getElementById('judulGaleri');
+        const isi = document.getElementById('isiFoto');
+        
+        isi.innerHTML = '';
+        if(jenis === 'pernikahan') {
+            judul.textContent = '💍 Dekorasi Pernikahan';
+            isi.innerHTML = `
+                <img src="pernikahan-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 1">
+                <img src="pernikahan-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 2">
+                <img src="pernikahan-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 3">
+                <img src="pernikahan-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 4">
+                <img src="pernikahan-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 5">
+            `;
+        } 
+        else if(jenis === 'khitanan') {
+            judul.textContent = '🌼 Dekorasi Khitanan';
+            isi.innerHTML = `
+                <img src="khitanan-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 1">
+                <img src="khitanan-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 2">
+                <img src="khitanan-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 3">
+                <img src="khitanan-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 4">
+                <img src="khitanan-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 5">
+            `;
+        }
+        else if(jenis === 'makeup') {
+            judul.textContent = '💄 Jasa Makeup';
+            isi.innerHTML = `
+                <img src="makeup-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 1">
+                <img src="makeup-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 2">
+                <img src="makeup-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 3">
+                <img src="makeup-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 4">
+                <img src="makeup-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 5">
+            `;
+        }
+        overlay.classList.remove('hidden');
+    }
+    function tutupGaleri(e) {
+        if(!e || e.target.id === 'overlay') {
+            document.getElementById('overlay').classList.add('hidden');
+        }
+    }
+    </script>
+
+    <!-- Bagian Tentang -->
+<section id="tentang" class="py-20 bg-white relative overflow-hidden">
+    <!-- Poto Pemanis Bingkai Estetik -->
+    <div class="about-frame-left"></div>
+    <div class="about-frame-right"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-6">Tentang Elisa Wedding</h2>
+                <p class="text-gray-600 mb-4">Kami adalah tim yang berdedikasi untuk mewujudkan momen istimewamu menjadi indah dan tak terlupakan. Berbasis di Bandung, Elisa Wedding hadir dengan sentuhan keanggunan dan pelayanan yang tulus.</p>
+                <p class="text-gray-600 mb-6">Setiap dekorasi dan riasan kami kerjakan dengan sepenuh hati — karena kebahagiaanmu adalah kebanggaan kami.</p>
+                <div class="space-y-2">
+                    <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Desain disesuaikan keinginanmu</p>
+                    <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Bahan & kualitas terbaik</p>
+                    <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Harga transparan & terjangkau</p>
+                    <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Siap melayani seluruh Bandung</p>
+                </div>
+            </div>
+            <div class="bg-gold/10 rounded-2xl p-8 text-center relative z-10">
+                <p class="font-display text-4xl text-gold-dark mb-2">✨</p>
+                <p class="font-display text-xl text-gold-dark italic">"Mewujudkan Momen Indahmu"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
     <!-- Bagian Kontak -->
-    <section id="kontak" class="py-20 bg-gradient-to-b from-amber-50/50 to-white">
+    <section id="kontak" class="py-20 bg-gold-pale">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-4">Hubungi Kami</h2>
