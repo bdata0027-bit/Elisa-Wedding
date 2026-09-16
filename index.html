@@ -8,39 +8,44 @@
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            light: '#F5E4B3',
-                            DEFAULT: '#D4AF37',
-                            dark: '#B8860B'
-                        },
-                        cream: '#FFFAF0'
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    gold: {
+                        pale: '#F9F2E0',
+                        light: '#E9D8A6',
+                        DEFAULT: '#D4AF37',
+                        dark: '#B8860B'
                     },
-                    fontFamily: {
-                        display: ['Playfair Display', 'serif'],
-                        sans: ['Poppins', 'sans-serif']
-                    }
+                    cream: '#FFFAF0'
+                },
+                fontFamily: {
+                    display: ['Playfair Display', 'serif'],
+                    sans: ['Poppins', 'sans-serif']
                 }
             }
         }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow-gold {
-                text-shadow: 0 2px 4px rgba(184, 134, 11, 0.3);
-            }
-            .bg-gradient-gold {
-                background: linear-gradient(135deg, #D4AF37 0%, #F5E4B3 50%, #D4AF37 100%);
-            }
+    }
+</script>
+<style type="text/tailwindcss">
+    @layer utilities {
+        .text-shadow-gold {
+            text-shadow: 0 2px 4px rgba(184, 134, 11, 0.25);
         }
-    </style>
-    <style>
-        html { scroll-behavior: smooth; }
-        .service-card:hover { transform: translateY(-8px); }
-    </style>
+        .bg-gradient-gold {
+            background: linear-gradient(135deg, '#D4AF37' 0%, '#E9D8A6' 50%, '#D4AF37' 100%);
+        }
+    }
+</style>
+<style>
+    html { scroll-behavior: smooth; }
+    .service-card:hover { transform: translateY(-8px); }
+    /* Ganti latar yang tadinya kemerahan/pink jadi krem keemasan lembut */
+    .bg-amber-50\/50 {
+        background-color: #F9F2E0 !important;
+    }
+</style>
 </head>
 <body class="font-sans bg-cream text-gray-800">
     <!-- Navbar -->
