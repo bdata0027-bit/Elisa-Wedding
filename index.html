@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elisa Wedding — Dekorasi • Khitanan • Makeup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#F5E4B3',
+                            DEFAULT: '#D4AF37',
+                            dark: '#B8860B'
+                        },
+                        cream: '#FFFAF0'
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow-gold {
+                text-shadow: 0 2px 4px rgba(184, 134, 11, 0.3);
+            }
+            .bg-gradient-gold {
+                background: linear-gradient(135deg, #D4AF37 0%, #F5E4B3 50%, #D4AF37 100%);
+            }
+        }
+    </style>
+    <style>
+        html { scroll-behavior: smooth; }
+        .service-card:hover { transform: translateY(-8px); }
+    </style>
+</head>
+<body class="font-sans bg-cream text-gray-800">
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="font-display font-bold text-2xl text-gold-dark">Elisa Wedding</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#beranda" class="hover:text-gold-dark transition-colors">Beranda</a>
+                <a href="#layanan" class="hover:text-gold-dark transition-colors">Layanan</a>
+                <a href="#galeri" class="hover:text-gold-dark transition-colors">Galeri</a>
+                <a href="#tentang" class="hover:text-gold-dark transition-colors">Tentang</a>
+                <a href="#kontak" class="hover:text-gold-dark transition-colors">Kontak</a>
+            </div>
+            <button class="md:hidden text-xl text-gold-dark"><i class="fa fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Bagian Beranda -->
+    <section id="beranda" class="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-b from-amber-50 to-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="font-display text-[clamp(2.5rem,8vw,4.5rem)] font-bold text-gold-dark mb-6 text-shadow-gold">
+                Elisa Wedding
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.25rem)] text-gray-600 mb-3">Dekorasi Pernikahan • Dekorasi Khitanan • Jasa Makeup</p>
+            <p class="text-lg max-w-2xl mx-auto mb-8 text-gray-700">
+                Mewujudkan momen terindahmu menjadi kenyataan. Dengan sentuhan keanggunan dan pelayanan sepenuh hati, kami hadir untuk melengkapi hari bahagiamu.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="#kontak" class="bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-all shadow-lg hover:shadow-xl">
+                    Konsultasi Gratis
+                </a>
+                <a href="#layanan" class="border-2 border-gold-dark text-gold-dark hover:bg-gold-dark hover:text-white font-semibold px-8 py-3 rounded-full transition-all">
+                    Lihat Paket
+                </a>
+            </div>
+            <p class="text-sm text-gray-500">✨ Berbasis di Bandung & siap melayani kota sekitarnya ✨</p>
+        </div>
+    </section>
+
+    <!-- Bagian Layanan -->
+    <section id="layanan" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-4">Layanan Kami</h2>
+                <p class="text-gray-600 max-w-xl mx-auto">Pilih paket yang sesuai dengan kebutuhan momen istimewamu</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Kartu 1 -->
+                <div class="service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold">
+                    <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center text-gold-dark text-2xl mb-6">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Dekorasi Pernikahan</h3>
+                    <p class="text-gray-600 mb-4">Tema eksklusif sesuai impianmu — dari akad hingga resepsi, indah dan berkesan.</p>
+                    <div class="text-sm text-gray-500 space-y-1 mb-4">
+                        <p>✓ Dekorasi Pelaminan</p>
+                        <p>✓ Hiasan Pintu Masuk</p>
+                        <p>✓ Meja Tamu & Bunga</p>
+                        <p>✓ Pencahayaan Indah</p>
+                    </div>
+                    <p class="font-semibold text-gold-dark">Harga mulai — isi di sini</p>
+                </div>
+
+                <!-- Kartu 2 -->
+                <div class="service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold">
+                    <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center text-gold-dark text-2xl mb-6">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Dekorasi Khitanan</h3>
+                    <p class="text-gray-600 mb-4">Ceria, penuh warna, dan berkesan — momen bahagia keluarga tercinta.</p>
+                    <div class="text-sm text-gray-500 space-y-1 mb-4">
+                        <p>✓ Tema Ceria / Kustom</p>
+                        <p>✓ Dekorasi Panggung</p>
+                        <p>✓ Foto Spot Anak</p>
+                        <p>✓ Hiasan Meja Makanan</p>
+                    </div>
+                    <p class="font-semibold text-gold-dark">Harga mulai — isi di sini</p>
+                </div>
+
+                <!-- Kartu 3 -->
+                <div class="service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold">
+                    <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center text-gold-dark text-2xl mb-6">
+                        <i class="fa fa-magic"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-3">Jasa Makeup</h3>
+                    <p class="text-gray-600 mb-4">Tampil cantik & percaya diri — riasan tahan lama, sesuai gaya wajahmu.</p>
+                    <div class="text-sm text-gray-500 space-y-1 mb-4">
+                        <p>✓ Makeup Pengantin</p>
+                        <p>✓ Makeup Keluarga</p>
+                        <p>✓ Perawatan Sebelum Hari H</p>
+                        <p>✓ Konsultasi Gaya</p>
+                    </div>
+                    <p class="font-semibold text-gold-dark">Harga mulai — isi di sini</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Galeri -->
+    <section id="galeri" class="py-20 bg-amber-50/50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-4">Galeri Karya</h2>
+                <p class="text-gray-600 max-w-xl mx-auto">Karya terbaik kami — ganti dengan foto aslimu</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 1</div>
+                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 2</div>
+                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 3</div>
+                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 4</div>
+                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 5</div>
+                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 6</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Tentang -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-6">Tentang Elisa Wedding</h2>
+                    <p class="text-gray-600 mb-4">Kami adalah tim yang berdedikasi untuk mewujudkan momen istimewamu menjadi indah dan tak terlupakan. Berbasis di Bandung, Elisa Wedding hadir dengan sentuhan keanggunan dan pelayanan yang tulus.</p>
+                    <p class="text-gray-600 mb-6">Setiap dekorasi dan riasan kami kerjakan dengan sepenuh hati — karena kebahagiaanmu adalah kebanggaan kami.</p>
+                    <div class="space-y-2">
+                        <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Desain disesuaikan keinginanmu</p>
+                        <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Bahan & kualitas terbaik</p>
+                        <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Harga transparan & terjangkau</p>
+                        <p class="flex items-center gap-2"><i class="fa fa-check text-gold-dark"></i> Siap melayani seluruh Bandung</p>
+                    </div>
+                </div>
+                <div class="bg-gold/10 rounded-2xl p-8 text-center">
+                    <p class="font-display text-4xl text-gold-dark mb-2">✨</p>
+                    <p class="font-display text-xl text-gold-dark italic">"Mewujudkan Momen Indahmu"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Kontak -->
+    <section id="kontak" class="py-20 bg-gradient-to-b from-amber-50/50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-4">Hubungi Kami</h2>
+                <p class="text-gray-600 max-w-xl mx-auto">Konsultasi gratis — ceritakan impianmu, kami wujudkan!</p>
+            </div>
+            <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-lg p-8">
+                <div class="space-y-6 text-center">
+                    <a href="https://wa.me/62XXXXXXXXX" target="_blank" class="flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-full transition-all">
+                        <i class="fa fa-whatsapp text-xl"></i>
+                        <span>Kirim Pesan WhatsApp — isi nomor kamu</span>
+                    </a>
+                    <p class="text-gray-500 text-sm">Atau hubungi kami di:</p>
+                    <div class="space-y-3 text-left pl-4">
+                        <p class="flex items-start gap-3"><i class="fa fa-map-marker text-gold-dark mt-1"></i> <span>Bandung, Jawa Barat</span></p>
+                        <p class="flex items-start gap-3"><i class="fa fa-clock-o text-gold-dark mt-1"></i> <span>Senin–Minggu: 09.00–21.00</span></p>
+                        <p class="flex items-start gap-3"><i class="fa fa-instagram text-gold-dark mt-1"></i> <span>@elisawedding — isi nanti</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gold-dark text-white py-8 text-center">
+        <p class="font-display text-xl mb-2">Elisa Wedding</p>
+        <p class="text-amber-200 text-sm mb-4">Dekorasi • Khitanan • Makeup</p>
+        <p class="text-amber-100/70 text-xs">© 2026 Elisa Wedding — Bandung. Semua hak dilindungi.</p>
+    </footer>
+</body>
+</html>
