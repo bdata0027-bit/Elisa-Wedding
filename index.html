@@ -190,50 +190,108 @@ setInterval(gantiSlide, 5000);
     </section>
 
     <!-- Bagian Galeri -->
-    <section id="galeri" class="py-20 bg-amber-50/50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-4">Galeri Karya</h2>
-                <p class="text-gray-600 max-w-xl mx-auto">Karya terbaik kami — ganti dengan foto aslimu</p>
-            </div>
-            <<!-- Kategori 1: Dekorasi Pernikahan -->
-<div class="mb-12">
-    <h3 class="font-display text-xl font-semibold text-gold-dark mb-4">💍 Dekorasi Pernikahan</h3>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-        <img src="pernikahan-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Pernikahan">
-        <img src="pernikahan-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Pernikahan">
-        <img src="pernikahan-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Pernikahan">
-        <img src="pernikahan-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Pernikahan">
-        <img src="pernikahan-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Pernikahan">
-    </div>
-</div>
-
-<!-- Kategori 2: Dekorasi Khitanan -->
-<div class="mb-12">
-    <h3 class="font-display text-xl font-semibold text-gold-dark mb-4">🌼 Dekorasi Khitanan</h3>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-        <img src="khitanan-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Khitanan">
-        <img src="khitanan-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Khitanan">
-        <img src="khitanan-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Khitanan">
-        <img src="khitanan-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Khitanan">
-        <img src="khitanan-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Khitanan">
-    </div>
-</div>
-
-<!-- Kategori 3: Jasa Makeup -->
-<div>
-    <h3 class="font-display text-xl font-semibold text-gold-dark mb-4">💄 Jasa Makeup</h3>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-        <img src="makeup-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Jasa Makeup">
-        <img src="makeup-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Jasa Makeup">
-        <img src="makeup-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Jasa Makeup">
-        <img src="makeup-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Jasa Makeup">
-        <img src="makeup-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Jasa Makeup">
-    </div>
-</div>
-
+<section id="galeri" class="py-20 bg-amber-50/50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-4">Galeri Karya</h2>
+            <p class="text-gray-600 max-w-xl mx-auto">Klik kartu untuk melihat koleksi lengkap karya kami</p>
         </div>
-    </section>
+
+        <!-- 3 Kartu Utama -->
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <!-- Kartu 1: Pernikahan -->
+            <div onclick="bukaGaleri('pernikahan')" class="cursor-pointer service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold hover:shadow-xl">
+                <div class="w-full h-48 bg-gold/10 rounded-xl mb-6 flex items-center justify-center text-gold-dark text-3xl">
+                    💍
+                </div>
+                <h3 class="font-display text-xl font-semibold mb-2 text-center">Dekorasi Pernikahan</h3>
+                <p class="text-gray-500 text-center text-sm">Klik untuk lihat 5 foto</p>
+            </div>
+
+            <!-- Kartu 2: Khitanan -->
+            <div onclick="bukaGaleri('khitanan')" class="cursor-pointer service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold hover:shadow-xl">
+                <div class="w-full h-48 bg-gold/10 rounded-xl mb-6 flex items-center justify-center text-gold-dark text-3xl">
+                    🌼
+                </div>
+                <h3 class="font-display text-xl font-semibold mb-2 text-center">Dekorasi Khitanan</h3>
+                <p class="text-gray-500 text-center text-sm">Klik untuk lihat 5 foto</p>
+            </div>
+
+            <!-- Kartu 3: Makeup -->
+            <div onclick="bukaGaleri('makeup')" class="cursor-pointer service-card bg-cream rounded-2xl p-8 shadow-md transition-all duration-300 border-t-4 border-gold hover:shadow-xl">
+                <div class="w-full h-48 bg-gold/10 rounded-xl mb-6 flex items-center justify-center text-gold-dark text-3xl">
+                    💄
+                </div>
+                <h3 class="font-display text-xl font-semibold mb-2 text-center">Jasa Makeup</h3>
+                <p class="text-gray-500 text-center text-sm">Klik untuk lihat 5 foto</p>
+            </div>
+        </div>
+
+        <!-- Kotak Muncul Foto (Tersembunyi Dulu) -->
+        <div id="overlay" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4" onclick="tutupGaleri(event)">
+            <div class="bg-white rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="judulGaleri" class="font-display text-xl font-semibold text-gold-dark"></h3>
+                    <button onclick="tutupGaleri()" class="text-gray-500 hover:text-gold-dark text-2xl">&times;</button>
+                </div>
+                <div id="isiFoto" class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                    <!-- Foto akan muncul di sini -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Kode Buka-Tutup Foto -->
+<script>
+function bukaGaleri(jenis) {
+    const overlay = document.getElementById('overlay');
+    const judul = document.getElementById('judulGaleri');
+    const isi = document.getElementById('isiFoto');
+    
+    isi.innerHTML = ''; // Kosongkan dulu
+
+    if(jenis === 'pernikahan') {
+        judul.textContent = '💍 Dekorasi Pernikahan';
+        isi.innerHTML = `
+            <img src="pernikahan-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 1">
+            <img src="pernikahan-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 2">
+            <img src="pernikahan-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 3">
+            <img src="pernikahan-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 4">
+            <img src="pernikahan-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 5">
+        `;
+    } 
+    else if(jenis === 'khitanan') {
+        judul.textContent = '🌼 Dekorasi Khitanan';
+        isi.innerHTML = `
+            <img src="khitanan-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 1">
+            <img src="khitanan-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 2">
+            <img src="khitanan-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 3">
+            <img src="khitanan-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 4">
+            <img src="khitanan-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 5">
+        `;
+    }
+    else if(jenis === 'makeup') {
+        judul.textContent = '💄 Jasa Makeup';
+        isi.innerHTML = `
+            <img src="makeup-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 1">
+            <img src="makeup-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 2">
+            <img src="makeup-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 3">
+            <img src="makeup-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 4">
+            <img src="makeup-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Foto 5">
+        `;
+    }
+
+    overlay.classList.remove('hidden');
+}
+
+function tutupGaleri(e) {
+    if(!e || e.target.id === 'overlay') {
+        document.getElementById('overlay').classList.add('hidden');
+    }
+}
+</script>
+
 
     <!-- Bagian Tentang -->
     <section id="tentang" class="py-20 bg-white">
