@@ -59,26 +59,75 @@
     </nav>
 
     <!-- Bagian Beranda -->
-    <section id="beranda" class="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-b from-amber-50 to-white">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="font-display text-[clamp(2.5rem,8vw,4.5rem)] font-bold text-gold-dark mb-6 text-shadow-gold">
-                Elisa Wedding
-            </h1>
-            <p class="text-[clamp(1rem,3vw,1.25rem)] text-gray-600 mb-3">Paket Wedding •Paket Lamaran • Paket Akad Nikah • Paket Dekorasi • Paket Ulang tahun • Paket Khitanan • Jasa Makeup</p>
-            <p class="text-lg max-w-2xl mx-auto mb-8 text-gray-700">
-                Mewujudkan momen terindahmu menjadi kenyataan. Dengan sentuhan keanggunan dan pelayanan sepenuh hati, kami hadir untuk melengkapi hari bahagiamu.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <a href="#kontak" class="bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-all shadow-lg hover:shadow-xl">
-                    Konsultasi Gratis
-                </a>
-                <a href="#layanan" class="border-2 border-gold-dark text-gold-dark hover:bg-gold-dark hover:text-white font-semibold px-8 py-3 rounded-full transition-all">
-                    Lihat Paket
-                </a>
-            </div>
-            <p class="text-sm text-gray-500">✨ Berbasis di Bandung & siap melayani kota sekitarnya ✨</p>
+    <section id="beranda" class="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+    <!-- Latar Belakang Berganti Otomatis -->
+    <div class="absolute inset-0">
+        <div id="slide1" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-100" style="background-image: url('./pelaminan-1.jpg');">
+            <div class="absolute inset-0 bg-black/40"></div>
         </div>
-    </section>
+        <div id="slide2" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('./pelaminan-2.jpg');">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div id="slide3" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('./pelaminan-3.jpg');">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+    </div>
+
+    <!-- Teks Tetap di Atas -->
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="font-display text-[clamp(2.5rem,8vw,4.5rem)] font-bold text-white mb-6 text-shadow-gold">
+            Elisa Wedding
+        </h1>
+        <p class="text-[clamp(1rem,3vw,1.25rem)] text-amber-100 mb-3">Dekorasi Pernikahan • Dekorasi Khitanan • Jasa Makeup</p>
+        <p class="text-lg max-w-2xl mx-auto mb-8 text-white/90">
+            Mewujudkan momen terindahmu menjadi kenyataan. Dengan sentuhan keanggunan dan pelayanan sepenuh hati, kami hadir untuk melengkapi hari bahagiamu.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a href="#kontak" class="bg-gold hover:bg-gold-dark text-white font-semibold px-8 py-3 rounded-full transition-all shadow-lg hover:shadow-xl">
+                Konsultasi Gratis
+            </a>
+            <a href="#layanan" class="border-2 border-white text-white hover:bg-white/20 font-semibold px-8 py-3 rounded-full transition-all">
+                Lihat Paket
+            </a>
+        </div>
+        <p class="text-sm text-amber-200">✨ Berbasis di Bandung & siap melayani kota sekitarnya ✨</p>
+    </div>
+
+    <!-- Tombol Lingkaran Indikator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+        <span class="w-3 h-3 rounded-full bg-white" id="dot1"></span>
+        <span class="w-3 h-3 rounded-full bg-white/50" id="dot2"></span>
+        <span class="w-3 h-3 rounded-full bg-white/50" id="dot3"></span>
+    </div>
+</section>
+
+<!-- Kode Pengatur Ganti Foto Otomatis -->
+<script>
+let nomor = 1;
+function gantiSlide() {
+    document.getElementById('slide1').style.opacity = '0';
+    document.getElementById('slide2').style.opacity = '0';
+    document.getElementById('slide3').style.opacity = '0';
+    document.getElementById('dot1').style.backgroundColor = 'rgba(255,255,255,0.5)';
+    document.getElementById('dot2').style.backgroundColor = 'rgba(255,255,255,0.5)';
+    document.getElementById('dot3').style.backgroundColor = 'rgba(255,255,255,0.5)';
+    
+    if(nomor === 1) {
+        document.getElementById('slide1').style.opacity = '1';
+        document.getElementById('dot1').style.backgroundColor = 'white';
+    } else if(nomor === 2) {
+        document.getElementById('slide2').style.opacity = '1';
+        document.getElementById('dot2').style.backgroundColor = 'white';
+    } else {
+        document.getElementById('slide3').style.opacity = '1';
+        document.getElementById('dot3').style.backgroundColor = 'white';
+    }
+    
+    nomor++;
+    if(nomor > 3) nomor = 1;
+}
+setInterval(gantiSlide, 5000);
+</script>
 
     <!-- Bagian Layanan -->
     <section id="layanan" class="py-20 bg-white">
@@ -147,14 +196,42 @@
                 <h2 class="font-display text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-gold-dark mb-4">Galeri Karya</h2>
                 <p class="text-gray-600 max-w-xl mx-auto">Karya terbaik kami — ganti dengan foto aslimu</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 1</div>
-                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 2</div>
-                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 3</div>
-                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 4</div>
-                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 5</div>
-                <div class="aspect-square bg-gold/10 rounded-xl flex items-center justify-center text-gold-dark">Foto Karya 6</div>
-            </div>
+            <<!-- Kategori 1: Dekorasi Pernikahan -->
+<div class="mb-12">
+    <h3 class="font-display text-xl font-semibold text-gold-dark mb-4">💍 Dekorasi Pernikahan</h3>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <img src="pernikahan-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Pernikahan">
+        <img src="pernikahan-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Pernikahan">
+        <img src="pernikahan-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Pernikahan">
+        <img src="pernikahan-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Pernikahan">
+        <img src="pernikahan-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Pernikahan">
+    </div>
+</div>
+
+<!-- Kategori 2: Dekorasi Khitanan -->
+<div class="mb-12">
+    <h3 class="font-display text-xl font-semibold text-gold-dark mb-4">🌼 Dekorasi Khitanan</h3>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <img src="khitanan-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Khitanan">
+        <img src="khitanan-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Khitanan">
+        <img src="khitanan-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Khitanan">
+        <img src="khitanan-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Khitanan">
+        <img src="khitanan-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Dekorasi Khitanan">
+    </div>
+</div>
+
+<!-- Kategori 3: Jasa Makeup -->
+<div>
+    <h3 class="font-display text-xl font-semibold text-gold-dark mb-4">💄 Jasa Makeup</h3>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <img src="makeup-1.jpg" class="w-full h-full object-cover rounded-xl" alt="Jasa Makeup">
+        <img src="makeup-2.jpg" class="w-full h-full object-cover rounded-xl" alt="Jasa Makeup">
+        <img src="makeup-3.jpg" class="w-full h-full object-cover rounded-xl" alt="Jasa Makeup">
+        <img src="makeup-4.jpg" class="w-full h-full object-cover rounded-xl" alt="Jasa Makeup">
+        <img src="makeup-5.jpg" class="w-full h-full object-cover rounded-xl" alt="Jasa Makeup">
+    </div>
+</div>
+
         </div>
     </section>
 
